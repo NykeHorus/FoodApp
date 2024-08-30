@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {SvgXml} from 'react-native-svg';
 import star from '../../../assets/images/star';
 import open from '../../../assets/images/open';
@@ -16,6 +16,7 @@ import {
 } from './resturant-info-styles';
 
 const RestaurantInfoCard = ({restaurant = {}}) => {
+  console.log('Re-rendering', restaurant.name);
   const {
     name = 'Some Restaurant',
     icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
@@ -26,6 +27,13 @@ const RestaurantInfoCard = ({restaurant = {}}) => {
     isClosedTemporarily = true,
     placeId,
   } = restaurant;
+
+  // const {
+  //   _id = 'some id',
+  //   firstName = 'Some Name',
+  //   lastName = 'some LastName',
+  //   password = 'random',
+  // } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
@@ -61,8 +69,20 @@ const RestaurantInfoCard = ({restaurant = {}}) => {
           <Address>{address}</Address>
         </Info>
       </ResturantCard>
+      {/* <ResturantCard elevation={5}>
+        <Info>
+          <Text variant="label">{firstName}</Text>
+          <Text variant="label">{lastName}</Text>
+          <Text variant="label">{_id}</Text>
+          <Text variant="label">{password}</Text>
+        </Info>
+      </ResturantCard>*/}
     </>
   );
 };
 
-export default RestaurantInfoCard;
+export default memo(
+  RestaurantInfoCard,
+  (prevProps, nextProps) =>
+    prevProps.restaurant.name === nextProps.restaurant.name,
+);

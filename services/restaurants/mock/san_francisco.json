@@ -1,8 +1,9 @@
 {
   "html_attributions": [],
-  "next_page_token": "some token",
+
   "results": [
     {
+      "next": "51.219448,4.402464",
       "business_status": "OPERATIONAL",
       "geometry": {
         "location": {

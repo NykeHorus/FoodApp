@@ -1,8 +1,10 @@
 {
   "html_attributions": [],
   "next_page_token": "some token",
+
   "results": [
     {
+      "next": null,
       "business_status": "OPERATIONAL",
       "geometry": {
         "location": {

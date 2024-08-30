@@ -3,6 +3,7 @@
   "next_page_token": "some token",
   "results": [
     {
+      "next": "41.878113,-87.629799",
       "business_status": "OPERATIONAL",
       "geometry": {
         "location": {
